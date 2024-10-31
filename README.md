@@ -16,6 +16,12 @@
 - **Yutaka Iribe** - Shimizu
 - **Tamaho Shigemura** - Algorithm Design Lab
 
+### AECTech
+We wanted to thank CORE Studio for hosting this event. 
+Here are the slides we presented at the event. 
+https://docs.google.com/presentation/d/1IYfWYMRZZFo6tpIs5yYFvRPi0NT_UnSsgiO12qauFYU/edit#slide=id.g2d4d7df7fcd_5_41
+
+
 ---
 
 ## Setup Instructions
