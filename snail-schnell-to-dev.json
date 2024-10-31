@@ -1,0 +1,724 @@
+{
+  "last_node_id": 111,
+  "last_link_id": 47,
+  "nodes": [
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1930,
+        130
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 39
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            40
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        642,
+        178
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 20
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 46,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            30
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "beautiful residential home with black exterior walls, ((masterpiece)), ((realistic)) at golden hour, dappled sunlight"
+      ]
+    },
+    {
+      "id": 102,
+      "type": "ControlNetLoader",
+      "pos": [
+        -99,
+        313
+      ],
+      "size": {
+        "0": 473.61700439453125,
+        "1": 62.17100143432617
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            32
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetLoader"
+      },
+      "widgets_values": [
+        "flux.1_dev_controlnet_canny_instantx.safetensors"
+      ]
+    },
+    {
+      "id": 108,
+      "type": "LoadImage",
+      "pos": [
+        6,
+        454
+      ],
+      "size": {
+        "0": 315,
+        "1": 102
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            43
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "title": "Load Image init",
+      "properties": {
+        "Node name for S&R": "LoadImage init"
+      },
+      "widgets_values": [
+        null,
+        "https://storage.googleapis.com/isolate-dev-hot-rooster_toolkit_bucket/github_3za5w6jrtegh54j1xkm6r71i/e3a499a4b4654ef4ad39e8d32b82a3ce_schnell.png?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gke-service-account%40isolate-dev-hot-rooster.iam.gserviceaccount.com%2F20241027%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20241027T150436Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=a6d1702f91a50e8794aa8a04b98b4710bee3463f1141752135bf9227b0f87c57ee926f6480d128725f1f4e700319c1d25e390d9f4314dc2138b0953fad45f1d89de8cf217777ea7e0e30663e550e66260f2d48332287762821d12030807fce23aa742560ccd481641883623d08bc65300afca87d50f0b23e52b8df8a3389b3e6abaf4b9cb71c6fcfe859a1565b8f95dbf064901a3be3b023dc40308165bd1b6d424a6ee749cf4065ebf0a204db8a07477348a99966370f05bda289e8c164356a8b8eb8a857dd5fa2cb4f0a551340bed604da9a70af8ed54770ca1588c79b2cc37b188e02f110587b26d839051b46748e3381a6ae01c37300fd50ffc591fbe5ff"
+      ]
+    },
+    {
+      "id": 111,
+      "type": "LoadImage",
+      "pos": [
+        52,
+        654
+      ],
+      "size": {
+        "0": 315,
+        "1": 102
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            47
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "title": "Control Net",
+      "properties": {
+        "Node name for S&R": "Control Net"
+      },
+      "widgets_values": [
+        null,
+        "https://storage.googleapis.com/isolate-dev-hot-rooster_toolkit_bucket/github_3za5w6jrtegh54j1xkm6r71i/f8773c1d52e14860884a422d9fe7c721_controlnetoption2.png?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gke-service-account%40isolate-dev-hot-rooster.iam.gserviceaccount.com%2F20241027%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20241027T150412Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=12b8b98dceb56934734535611e7cbc9f91ecb7108c42b3f86525da7c68c4a3261234a2b00c467349987ba152b37eaddba60e988e42b8dba2d7c52f8eee1bc23298ca3b16857ec621281a7674e72fe7cdf5cc8d1ffa9f702d12a42813081281966d7af32bfcf12d25139aa66bb907e895f5107ee176dcfdbf1c622f159d52f76fa27b2751a88d0339930ea8478f507fd366a77a00a49c63ed79992cfa65e2c3be9fbbd7d9995ddcb49d7324be080a77bc8a58524e2048cb82ce0b10149199de33cdd4e57afea326a091f74e4326d3ec7b2d2f587eb52c9d5a4da2c49d7a90b9aa187173836e074278ba8c8137d25e28e3f7b95213001882bc5e02f84ecf1eec52"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -127,
+        122
+      ],
+      "size": {
+        "0": 476.9549865722656,
+        "1": 101.3740005493164
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            38
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            20,
+            21
+          ],
+          "shape": 3
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            18,
+            22,
+            33
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "flux1-dev-fp8.safetensors"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "VAEEncode",
+      "pos": [
+        1206,
+        413
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 43
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 18
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            37
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      }
+    },
+    {
+      "id": 101,
+      "type": "CannyEdgePreprocessor",
+      "pos": [
+        786,
+        745
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 47
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            34
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CannyEdgePreprocessor"
+      },
+      "widgets_values": [
+        100,
+        200,
+        704
+      ]
+    },
+    {
+      "id": 105,
+      "type": "PreviewImage",
+      "pos": [
+        2236,
+        144
+      ],
+      "size": {
+        "0": 210,
+        "1": 26
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 40
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        600,
+        460
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            31
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "2 heads, cropped image, draft, deformed hands, twisted fingers, long neck, malformed hands, multiple heads, extra limb, poorly drawn hands, missing limb, disfigured, blurry, bad anatomy, mutation, floating limbs, disconnected limbs, disgusting, mutilated, surreal, extra fingers, morbid, gross proportions, missing arms, mutated hands, mutilated hands, malformed, tiling, poorly drawn hands, out of frame, extra limbs, disfigured, deformed, body out of frame, bad art, beginner, amateur, distorted face, watermark\n"
+      ]
+    },
+    {
+      "id": 110,
+      "type": "StringInput_fal",
+      "pos": [
+        -1,
+        -44
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            46
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringInput_fal"
+      },
+      "widgets_values": [
+        "cliptextencode_text",
+        "Create a high-quality rendering of a large, visually stunning single-family home surrounded by wide, open green spaces. The home should have a blend of modern and timeless architectural design, featuring expansive windows, clean lines, and thoughtful landscaping that harmonizes with the surrounding environment. The setting should feel serene and inviting, with well-maintained lawns, open skies, and an airy backyard space with outdoor seating. Show the house in a natural daylight setting that highlights the architecture and the green, open landscape around it."
+      ]
+    },
+    {
+      "id": 103,
+      "type": "ControlNetApplySD3",
+      "pos": [
+        1100,
+        130
+      ],
+      "size": {
+        "0": 315,
+        "1": 186
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 30
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 31
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 32
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 33
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 34
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            35
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            36
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetApplySD3"
+      },
+      "widgets_values": [
+        0.8,
+        0,
+        0.6
+      ]
+    },
+    {
+      "id": 104,
+      "type": "KSamplerAdvanced",
+      "pos": [
+        1523,
+        84
+      ],
+      "size": {
+        "0": 315,
+        "1": 334
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 38
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 35
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 36
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 37
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            39
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerAdvanced"
+      },
+      "widgets_values": [
+        "enable",
+        0,
+        "randomize",
+        15,
+        1,
+        "lcm",
+        "karras",
+        2,
+        10000,
+        "disable"
+      ]
+    }
+  ],
+  "links": [
+    [
+      18,
+      4,
+      2,
+      5,
+      1,
+      "VAE"
+    ],
+    [
+      20,
+      4,
+      1,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      21,
+      4,
+      1,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      22,
+      4,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      30,
+      6,
+      0,
+      103,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      31,
+      7,
+      0,
+      103,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      32,
+      102,
+      0,
+      103,
+      2,
+      "CONTROL_NET"
+    ],
+    [
+      33,
+      4,
+      2,
+      103,
+      3,
+      "VAE"
+    ],
+    [
+      34,
+      101,
+      0,
+      103,
+      4,
+      "IMAGE"
+    ],
+    [
+      35,
+      103,
+      0,
+      104,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      36,
+      103,
+      1,
+      104,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      37,
+      5,
+      0,
+      104,
+      3,
+      "LATENT"
+    ],
+    [
+      38,
+      4,
+      0,
+      104,
+      0,
+      "MODEL"
+    ],
+    [
+      39,
+      104,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      40,
+      8,
+      0,
+      105,
+      0,
+      "IMAGE"
+    ],
+    [
+      43,
+      108,
+      0,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      46,
+      110,
+      0,
+      6,
+      1,
+      "STRING"
+    ],
+    [
+      47,
+      111,
+      0,
+      101,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6209213230591554,
+      "offset": [
+        741.8479852453456,
+        335.42459824457785
+      ]
+    }
+  },
+  "version": 0.4
+}

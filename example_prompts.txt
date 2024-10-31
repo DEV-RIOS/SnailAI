@@ -1,0 +1,28 @@
+Here are seasonally optimized prompts for spring, summer, fall, and winter:
+
+### Spring:
+**Prompt:**  
+Ultra-realistic architectural photography of a multi-story office building rising gracefully in an urban cityscape, surrounded by a vibrant spring landscape. Blooming flowers and fresh greenery enliven the scene, while soft sunlight bathes the structure, adding a sense of renewal and energy. The atmosphere is light and inviting, with a touch of whimsy highlighting the architectural features. The building's modern design is enhanced by 3D visualization techniques, with a color palette dominated by fresh greens, soft pastels, and crisp whites to reflect the rejuvenating spirit of spring.
+
+---
+
+### Summer:
+**Prompt:**  
+Ultra-realistic architectural photography of a multi-story office building rising majestically in an urban cityscape, surrounded by a lush summertime landscape. Soft, diffused lighting creates a cozy, serene atmosphere, enhancing the architectural features with a whimsical touch. The scene reflects a contemporary architectural style, showcasing the building's design with 3D modeling techniques. The color palette is dominated by cool tones, including whites and blues, capturing the essence of a peaceful summer day. The composition emphasizes the grandeur of the building within its captivating landscape setting.
+
+---
+
+### Fall:
+**Prompt:**  
+Ultra-realistic architectural photography of a multi-story office building standing prominently in an urban cityscape, surrounded by a rich autumn landscape. Vibrant fall foliage in shades of red, orange, and gold contrasts with the building’s sleek design. Warm, diffused lighting enhances the cozy and nostalgic ambiance, with subtle touches of whimsy highlighting the architecture. The building's modern elements are showcased through detailed 3D visualization, while the warm, earthy color palette emphasizes the changing season. The composition captures the building’s presence amid the enchanting autumnal environment.
+
+---
+
+### Winter:
+**Prompt:**  
+Ultra-realistic architectural photography of a multi-story office building rising starkly in an urban cityscape, surrounded by a serene winter landscape. Snow blankets the ground and the building’s surroundings, while soft, diffused lighting gives the scene a crisp, peaceful quality. The architectural design stands out against the cool, muted tones of the season, with a focus on the interplay between structure and nature. Icy blues, whites, and subtle grays dominate the color scheme, enhancing the cold, quiet beauty of winter. The composition reflects the building's striking form amidst a tranquil winter wonderland.
+
+Each prompt is tailored to evoke the unique atmosphere and color palette of the corresponding season.
+
+Negative Prompt
+2 heads, cropped image, draft, deformed hands, twisted fingers, long neck, malformed hands, multiple heads, extra limb, poorly drawn hands, missing limb, disfigured, blurry, bad anatomy, mutation, floating limbs, disconnected limbs, disgusting, mutilated, surreal, extra fingers, morbid, gross proportions, missing arms, mutated hands, mutilated hands, malformed, tiling, poorly drawn hands, out of frame, extra limbs, disfigured, deformed, body out of frame, bad art, beginner, amateur, distorted face, watermark

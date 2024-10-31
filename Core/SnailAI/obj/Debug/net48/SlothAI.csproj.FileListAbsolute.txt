@@ -1,0 +1,11 @@
+C:\Users\oborgstrom\Repos\SlothAI\SlothAI\bin\Debug\net48\SlothAI.rhp
+C:\Users\oborgstrom\Repos\SlothAI\SlothAI\bin\Debug\net48\SlothAI.pdb
+C:\Users\oborgstrom\Repos\SlothAI\SlothAI\bin\Debug\net48\System.Drawing.Common.dll
+C:\Users\oborgstrom\Repos\SlothAI\SlothAI\obj\Debug\net48\SlothAI.csproj.AssemblyReference.cache
+C:\Users\oborgstrom\Repos\SlothAI\SlothAI\obj\Debug\net48\SlothAI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\oborgstrom\Repos\SlothAI\SlothAI\obj\Debug\net48\SlothAI.AssemblyInfoInputs.cache
+C:\Users\oborgstrom\Repos\SlothAI\SlothAI\obj\Debug\net48\SlothAI.AssemblyInfo.cs
+C:\Users\oborgstrom\Repos\SlothAI\SlothAI\obj\Debug\net48\SlothAI.csproj.CoreCompileInputs.cache
+C:\Users\oborgstrom\Repos\SlothAI\SlothAI\obj\Debug\net48\SlothAI.csproj.Up2Date
+C:\Users\oborgstrom\Repos\SlothAI\SlothAI\obj\Debug\net48\SlothAI.rhp
+C:\Users\oborgstrom\Repos\SlothAI\SlothAI\obj\Debug\net48\SlothAI.pdb
