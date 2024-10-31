@@ -30,10 +30,10 @@ https://docs.google.com/presentation/d/1IYfWYMRZZFo6tpIs5yYFvRPi0NT_UnSsgiO12qau
    - Load credits (approximately $5–$10) and import the three included `comfyui` JSON definitions.
 
 2. **Add API Key**  
-   - Create a file named `fal_api_key.txt` located at `\SnailAI\Core\SnailAI\fal_api_key.txt`, and paste in your Fal.AI API key.
+   - Create a file named `fal_api_key.txt` located at `\SnailAI\fal_api_key.txt`, and paste in your Fal.AI API key.
 
 3. **Configure API Endpoint**  
-   - Update the solution to match your specific API endpoint.  
+   - Update `falConfig.json` located at `\SnailAI\falConfig.json` to match your specific API endpoint.  
      - Example: If your endpoint is `"comfy/DEV-RIOS/snail-rhino-to-turbo"`, replace "DEV-RIOS" with your account name. Ensure endpoint names are accurate as they’re a common point of error.
 
 4. **Build and Install**  

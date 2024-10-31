@@ -1,3 +1,5 @@
 # api keys
 **/fal_api_key.txt
-**/Secrets.cs
+*.Secrets.cs
+**/obj/**
+**/bin/**
