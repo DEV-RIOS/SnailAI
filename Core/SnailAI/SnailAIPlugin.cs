@@ -30,8 +30,6 @@ namespace SnailAI
 
         private readonly ViewportPropertiesPage _mPage;
 
-        //private static readonly string _apiKey = "0ea6b797-ca57-4b70-a51b-17c8ab11e9d9:200ccb9267d36050563a35548200c3b9";
-
         private readonly string _apiKey = Secrets.ApiKey;
         public Lazy<FalAPI.FalClient> clientLowQuality;
         public Lazy<FalAPI.FalClient> clientMediumQuality;

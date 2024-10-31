@@ -15,6 +15,7 @@ C:\Users\jimmy\SnailAI\Core\SnailAI\obj\Release\net7.0\SnailAI.GeneratedMSBuildE
 C:\Users\jimmy\SnailAI\Core\SnailAI\obj\Release\net7.0\SnailAI.AssemblyInfoInputs.cache
 C:\Users\jimmy\SnailAI\Core\SnailAI\obj\Release\net7.0\SnailAI.AssemblyInfo.cs
 C:\Users\jimmy\SnailAI\Core\SnailAI\obj\Release\net7.0\SnailAI.csproj.CoreCompileInputs.cache
+C:\Users\jimmy\SnailAI\Core\SnailAI\obj\Release\net7.0\SnailAI.sourcelink.json
 C:\Users\jimmy\SnailAI\Core\SnailAI\obj\Release\net7.0\SnailAI.csproj.Up2Date
 C:\Users\jimmy\SnailAI\Core\SnailAI\obj\Release\net7.0\SnailAI.rhp
 C:\Users\jimmy\SnailAI\Core\SnailAI\obj\Release\net7.0\refint\SnailAI.rhp
