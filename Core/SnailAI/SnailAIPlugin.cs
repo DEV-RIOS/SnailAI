@@ -245,11 +245,15 @@ namespace SnailAI
 
         private void QueCaptureModelChange(object sender, EventArgs e)
         {
-            mutex.Wait();
-            bitmap = null;
-            mutex.Release();
-            timer.Restart();
-            queCapture[0] = true;
+
+            if (RhinoDoc.ActiveDoc.Views.ActiveView.ActiveViewport?.DisplayMode?.EnglishName == "SnailAI" && !isCapture)
+            {
+                mutex.Wait();
+                bitmap = null;
+                mutex.Release();
+                timer.Restart();
+                queCapture[0] = true;
+            }
         }
 
         private void DrawForeground(object sender, DrawEventArgs e)
