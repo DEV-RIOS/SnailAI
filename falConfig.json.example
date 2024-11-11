@@ -1,0 +1,6 @@
+{
+    "APIKey" : "00000000-0000-0000-0000-000000000000:00000000000000000000000000000000",
+    "LowAPIEndpoint" : "comfy/USERNAME/snail-rhino-to-turbo",
+    "MedAPIEndpoint" : "comfy/USERNAME/snail-turbo-to-schnell",
+    "HighAPIEndpoint" : "comfy/USERNAME/snail-schnell-to-dev"
+}

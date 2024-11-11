@@ -29,20 +29,21 @@ https://docs.google.com/presentation/d/1IYfWYMRZZFo6tpIs5yYFvRPi0NT_UnSsgiO12qau
 1. **Create a Fal.AI Account**  
    - Load credits (approximately $5–$10) and import the three included `comfyui` JSON definitions.
 
-2. **Add API Key**  
-   - Create a file named `fal_api_key.txt` located at `\SnailAI\fal_api_key.txt`, and paste in your Fal.AI API key.
+2. **Configure API Endpoint**   
+   - Rename `falConfig.json.example` located at `\SnailAI\falConfig.json.example` to `falConfig.json`
+     - **This file is ignored by source control, do not add it!**
+   - Update the contained properties to match your specific API endpoint.
+     - Update the **APIKey** property with your Fal.AI API key.
+     - Update the Low, Medium, and High Endpoints with your endpoints:
+        - Example: If your endpoint is `"comfy/DEV-RIOS/snail-rhino-to-turbo"`, replace "DEV-RIOS" with your account name. Ensure endpoint names are accurate as they’re a common point of error.
 
-3. **Configure API Endpoint**  
-   - Update `falConfig.json` located at `\SnailAI\falConfig.json` to match your specific API endpoint.  
-     - Example: If your endpoint is `"comfy/DEV-RIOS/snail-rhino-to-turbo"`, replace "DEV-RIOS" with your account name. Ensure endpoint names are accurate as they’re a common point of error.
-
-4. **Build and Install**  
+3. **Build and Install**  
    - Build the solution and install `SnailAI.rhp` from the `bin` folder.
 
-5. **Import Display Mode**  
+4. **Import Display Mode**  
    - Import the included `SnailAI.ini` display mode.
 
-6. **Activate Display Mode**  
+5. **Activate Display Mode**  
    - In the Rhino viewport, activate the display mode to run the plugin.
 
 ---
