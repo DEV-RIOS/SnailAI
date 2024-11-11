@@ -37,36 +37,13 @@ namespace SnailAI
         public Stopwatch timer = new Stopwatch();
         public readonly bool[] queCapture = new[] { false };
         public SemaphoreSlim mutex = new SemaphoreSlim(1);
-        private FalClientSettings _falClientSettings = null;
-
-        public FalClientSettings FalSettings
-        {
-            get
-            {
-                if (_falClientSettings is not null) return _falClientSettings;
-                string codeBase = System.Reflection.Assembly.GetExecutingAssembly().Location;
-                UriBuilder uri = new UriBuilder(codeBase);
-                string path = Uri.UnescapeDataString(uri.Path);
-                string assemblyDirectory = Path.GetDirectoryName(path);
-
-                string jsonFilePath = Path.Combine(assemblyDirectory, "falConfig.json");
-
-                using (StreamReader file = File.OpenText(jsonFilePath))
-                {
-                    JsonSerializer serializer = new JsonSerializer();
-                    _falClientSettings = (FalClientSettings)serializer.Deserialize(file, typeof(FalClientSettings));
-                }
-
-                return _falClientSettings;
-            }
-        }
 
 
         public SnailAIPlugin()
         {
-            clientLowQuality = new Lazy<FalAPI.FalClient>(() => new FalAPI.FalClient(FalSettings.LowAPIEndpoint, FalClientSettings.ApiKey, "Low"));
-            clientMediumQuality = new Lazy<FalAPI.FalClient>(() => new FalAPI.FalClient(FalSettings.MedAPIEndpoint, FalClientSettings.ApiKey, "Medium"));
-            clientHighQuality = new Lazy<FalAPI.FalClient>(() => new FalAPI.FalClient(FalSettings.HighAPIEndpoint, FalClientSettings.ApiKey, "High"));
+            clientLowQuality = new Lazy<FalAPI.FalClient>(() => new FalAPI.FalClient(FalClientSettings.LowAPIEndpoint, FalClientSettings.APIKey, "Low"));
+            clientMediumQuality = new Lazy<FalAPI.FalClient>(() => new FalAPI.FalClient(FalClientSettings.MedAPIEndpoint, FalClientSettings.APIKey, "Medium"));
+            clientHighQuality = new Lazy<FalAPI.FalClient>(() => new FalAPI.FalClient(FalClientSettings.HighAPIEndpoint, FalClientSettings.APIKey, "High"));
 
             _mPage = new ViewportPropertiesPage();
             RhinoView.Modified += QueCaptureView;

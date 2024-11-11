@@ -29,10 +29,18 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="../FalAiSettingsGenerator/FalAiSettingsGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <AdditionalFiles Include="$(ProjectDir)../../falConfig.json" />
+  </ItemGroup>
+	
+  <ItemGroup>
     <PackageReference Include="Grasshopper" Version="8.0.23304.9001" ExcludeAssets="runtime" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="System.Drawing.Common" Version="8.0.10" />
     <PackageReference Include="System.Resources.Extensions" Version="8.0.0" />
+	<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   
   <ItemGroup>
@@ -49,48 +57,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-
-  <!-- Target to run the inline task -->
-  <Target Name="InjectApiKey" BeforeTargets="BeforeBuild">
-    <!-- Read the API key from the file -->
-    <ReadLinesFromFile File="$(ProjectDir)../../fal_api_key.txt">
-        <Output TaskParameter="Lines" ItemName="FalApiKeyLines" />
-    </ReadLinesFromFile>
-
-    <ItemGroup>
-      <FalApiKeyLines>
-        <LineText>%(Identity)</LineText>
-      </FalApiKeyLines>
-    </ItemGroup>
-
-    <PropertyGroup>
-      <APIKey>@(FalApiKeyLines->'%(LineText)')</APIKey>
-      <SecretsFile>
-      // This is a generated file, do not add to source control!!!
-      namespace SnailAI%3b
-      
-      public partial class FalClientSettings
-      {
-          public const string ApiKey = "$(APIKey)"%3b
-      }
-      </SecretsFile>
-    </PropertyGroup>
-    <!-- Display the created property -->
-    <Message Importance="high" Text="API_Key: $(APIKey)" />
   
-    <!-- Execute the inline task to generate FalClientSettings.Secrets.cs -->
-    <WriteLinesToFile
-          File="$(ProjectDir)FalClientSettings.Secrets.cs"
-          Lines="$(SecretsFile)"
-          Overwrite="true"
-          WriteOnlyWhenDifferent="true" />  
-    
-  </Target>
-  
-  <Target Name="CopyConfigToBin" AfterTargets="Build">
-    <Copy SourceFiles="$(ProjectDir)../../falConfig.json" DestinationFolder="$(OutDir)"/>
-  </Target>
-
 
 
 </Project>
