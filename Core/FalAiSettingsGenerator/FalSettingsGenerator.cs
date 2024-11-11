@@ -17,7 +17,7 @@ public class FalSettingsGenerator : ISourceGenerator
 
     public void Execute(GeneratorExecutionContext context)
     {
-        var jsonFile = context.AdditionalFiles.First(path => path.Path.EndsWith(".json"));
+        var jsonFile = context.AdditionalFiles.First(path => path.Path.EndsWith("falConfig.json"));
         var jsonText = jsonFile.GetText()!.ToString();
         if(string.IsNullOrWhiteSpace(jsonText)) return;
         var jsonDocument = JsonDocument.Parse(jsonText);
