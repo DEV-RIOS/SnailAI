@@ -15,6 +15,6 @@
       "environmentVariables": {
         "RHINO_PACKAGE_DIRS": "$(ProjectDir)$(OutputPath)\\"
       }
-    },
+    }
   }
 }

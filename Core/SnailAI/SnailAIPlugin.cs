@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.IO;
 using FalAPI;
+using Newtonsoft.Json;
 using Rhino.UI;
 using SnailAI;
 using SnailAI.Properties;
@@ -30,7 +31,6 @@ namespace SnailAI
 
         private readonly ViewportPropertiesPage _mPage;
 
-        private readonly string _apiKey = Secrets.ApiKey;
         public Lazy<FalAPI.FalClient> clientLowQuality;
         public Lazy<FalAPI.FalClient> clientMediumQuality;
         public Lazy<FalAPI.FalClient> clientHighQuality;
@@ -41,10 +41,9 @@ namespace SnailAI
 
         public SnailAIPlugin()
         {
-
-            clientLowQuality = new Lazy<FalAPI.FalClient>(() => new FalAPI.FalClient("comfy/DEV-RIOS/snail-rhino-to-turbo", _apiKey, "Low"));
-            clientMediumQuality = new Lazy<FalAPI.FalClient>(() => new FalAPI.FalClient("comfy/DEV-RIOS/snail-turbo-to-schnell", _apiKey, "Medium"));
-            clientHighQuality = new Lazy<FalAPI.FalClient>(() => new FalAPI.FalClient("comfy/DEV-RIOS/snail-schnell-to-dev", _apiKey, "High"));
+            clientLowQuality = new Lazy<FalAPI.FalClient>(() => new FalAPI.FalClient(FalClientSettings.LowAPIEndpoint, FalClientSettings.APIKey, "Low"));
+            clientMediumQuality = new Lazy<FalAPI.FalClient>(() => new FalAPI.FalClient(FalClientSettings.MedAPIEndpoint, FalClientSettings.APIKey, "Medium"));
+            clientHighQuality = new Lazy<FalAPI.FalClient>(() => new FalAPI.FalClient(FalClientSettings.HighAPIEndpoint, FalClientSettings.APIKey, "High"));
 
             _mPage = new ViewportPropertiesPage();
             RhinoView.Modified += QueCaptureView;
@@ -223,11 +222,15 @@ namespace SnailAI
 
         private void QueCaptureModelChange(object sender, EventArgs e)
         {
-            mutex.Wait();
-            bitmap = null;
-            mutex.Release();
-            timer.Restart();
-            queCapture[0] = true;
+
+            if (RhinoDoc.ActiveDoc.Views.ActiveView.ActiveViewport?.DisplayMode?.EnglishName == "SnailAI" && !isCapture)
+            {
+                mutex.Wait();
+                bitmap = null;
+                mutex.Release();
+                timer.Restart();
+                queCapture[0] = true;
+            }
         }
 
         private void DrawForeground(object sender, DrawEventArgs e)
