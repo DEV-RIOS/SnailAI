@@ -42,9 +42,9 @@ namespace SnailAI
         public SnailAIPlugin()
         {
 
-            clientLowQuality = new Lazy<FalAPI.FalClient>(() => new FalAPI.FalClient("comfy/DEV-RIOS/snail-rhino-to-turbo", _apiKey, "Low"));
-            clientMediumQuality = new Lazy<FalAPI.FalClient>(() => new FalAPI.FalClient("comfy/DEV-RIOS/snail-turbo-to-schnell", _apiKey, "Medium"));
-            clientHighQuality = new Lazy<FalAPI.FalClient>(() => new FalAPI.FalClient("comfy/DEV-RIOS/snail-schnell-to-dev", _apiKey, "High"));
+            clientLowQuality = new Lazy<FalAPI.FalClient>(() => new FalAPI.FalClient(Secrets.LowAPIEndpoint, _apiKey, "Low"));
+            clientMediumQuality = new Lazy<FalAPI.FalClient>(() => new FalAPI.FalClient(Secrets.MedAPIEndpoint, _apiKey, "Medium"));
+            clientHighQuality = new Lazy<FalAPI.FalClient>(() => new FalAPI.FalClient(Secrets.HighAPIEndpoint, _apiKey, "High"));
 
             _mPage = new ViewportPropertiesPage();
             RhinoView.Modified += QueCaptureView;
