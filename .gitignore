@@ -1,3 +1,6 @@
-# api keys
-**/fal_api_key.txt
-**/Secrets.cs
+# secrets
+**/falConfig.json
+# binaries
+**/bin/
+
+**.vs/

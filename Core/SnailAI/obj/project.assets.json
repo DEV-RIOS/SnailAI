@@ -308,11 +308,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jimmy\\SnailAI\\Core\\SnailAI\\SnailAI.csproj",
+      "projectUniqueName": "C:\\Users\\jimmy\\source\\repos\\JTorKag\\SnailAI\\Core\\SnailAI\\SnailAI.csproj",
       "projectName": "SnailAI",
-      "projectPath": "C:\\Users\\jimmy\\SnailAI\\Core\\SnailAI\\SnailAI.csproj",
+      "projectPath": "C:\\Users\\jimmy\\source\\repos\\JTorKag\\SnailAI\\Core\\SnailAI\\SnailAI.csproj",
       "packagesPath": "C:\\Users\\jimmy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jimmy\\SnailAI\\Core\\SnailAI\\obj\\",
+      "outputPath": "C:\\Users\\jimmy\\source\\repos\\JTorKag\\SnailAI\\Core\\SnailAI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

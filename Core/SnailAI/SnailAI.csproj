@@ -1,82 +1,45 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	
-  <PropertyGroup>
-    <!-- Select the framework(s) you wish to target.
-        Rhino 6: net45
-        Rhino 7: net48
-        Rhino 8 Windows: net48, net7.0, net7.0-windows, net7.0-windows10.0.22000.0, etc
-        Rhino 8 Mac: net7.0, net7.0-macos, net7.0-macos12.0, etc
-    -->
-    <TargetFramework>net7.0</TargetFramework>
-    <EnableDynamicLoading>true</EnableDynamicLoading>
-    <TargetExt>.rhp</TargetExt>
-    <NoWarn>NU1701</NoWarn>
-  </PropertyGroup>
-  
-  <PropertyGroup>
-    <!-- Specifies information for Assembly and Yak -->
-    <Version>1.0</Version>
-    <Title>SnailAI</Title>
-    <Company>SnailAI Authors</Company>
-    <Description>Description of SnailAI</Description>
-    <ApplicationIcon>Resources\SnailAI.ico</ApplicationIcon>
-  </PropertyGroup>
-  
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\SnailAI.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
-  
-  <ItemGroup>
-    <PackageReference Include="Grasshopper" Version="8.0.23304.9001" ExcludeAssets="runtime" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="System.Drawing.Common" Version="8.0.10" />
-    <PackageReference Include="System.Resources.Extensions" Version="8.0.0" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
 
-	<UsingTask TaskName="GenerateSecretsFile" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
-		<ParameterGroup>
-			<ApiKey ParameterType="System.String" Required="true" />
-			<OutputFile ParameterType="System.String" Required="true" />
-		</ParameterGroup>
-		<Task>
-			<Using Namespace="System.IO" />
-			<Code Type="Fragment" Language="cs">
-				<![CDATA[
-          string content = "namespace SnailAI { public static class Secrets { public const string ApiKey = \"" + ApiKey + "\"; } }";
-          File.WriteAllText(OutputFile, content);
-        ]]>
-			</Code>
-		</Task>
-	</UsingTask>
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<EnableDynamicLoading>true</EnableDynamicLoading>
+		<TargetExt>.rhp</TargetExt>
+		<NoWarn>NU1701</NoWarn>
+	</PropertyGroup>
 
-	<!-- Target to run the inline task -->
-	<Target Name="InjectApiKey" BeforeTargets="BeforeBuild">
-		<!-- Read the API key from the file -->
-		<ReadLinesFromFile File="fal_api_key.txt">
-			<Output TaskParameter="Lines" ItemName="FalApiKeyLines" />
-		</ReadLinesFromFile>
+	<PropertyGroup>
+		<Version>1.0</Version>
+		<Title>SnailAI</Title>
+		<Company>SnailAI Authors</Company>
+		<Description>Description of SnailAI</Description>
+		<ApplicationIcon>Resources\SnailAI.ico</ApplicationIcon>
+	</PropertyGroup>
 
-		<!-- Execute the inline task to generate Secrets.cs -->
-		<GenerateSecretsFile ApiKey="%(FalApiKeyLines.Identity)" OutputFile="Properties/Secrets.cs" />
+	<ItemGroup>
+		<EmbeddedResource Include="Resources\SnailAI.ico">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Grasshopper" Version="8.0.23304.9001" ExcludeAssets="runtime" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="System.Drawing.Common" Version="8.0.10" />
+		<PackageReference Include="System.Resources.Extensions" Version="8.0.0" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<!-- Removes the trailing backslash from ProjectDir -->
+		<ProjectDirNoSlash>$([System.String]::Copy($(ProjectDir)).TrimEnd('\\\\'))</ProjectDirNoSlash>
+	</PropertyGroup>
+
+	<Target Name="BuildSecrets" BeforeTargets="BeforeBuild">
+		<Exec Command='python "$(ProjectDir)Scripts/BuildSecrets.py" -d "$(ProjectDir)."'/>
 	</Target>
 
+	<Target Name="CleanSecrets" AfterTargets="AfterBuild">
+		<Exec Command='python "$(ProjectDir)Scripts/BuildSecrets.py" -d "$(ProjectDir)." -c True'/>
+	</Target>
 
 
 </Project>

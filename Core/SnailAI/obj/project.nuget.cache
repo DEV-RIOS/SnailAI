@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vSGQX89PiZM=",
+  "dgSpecHash": "7/b2QDWM5oM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\jimmy\\SnailAI\\Core\\SnailAI\\SnailAI.csproj",
+  "projectFilePath": "C:\\Users\\jimmy\\Source\\Repos\\JTorKag\\SnailAI\\Core\\SnailAI\\SnailAI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jimmy\\.nuget\\packages\\grasshopper\\8.0.23304.9001\\grasshopper.8.0.23304.9001.nupkg.sha512",
     "C:\\Users\\jimmy\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",

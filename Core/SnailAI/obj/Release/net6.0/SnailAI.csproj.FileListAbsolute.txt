@@ -1,0 +1,3 @@
+C:\Users\jimmy\source\repos\JTorKag\SnailAI\Core\SnailAI\obj\Release\net6.0\SnailAI.csproj.AssemblyReference.cache
+C:\Users\jimmy\source\repos\JTorKag\SnailAI\Core\SnailAI\obj\Release\net6.0\SnailAI.Properties.Resources.resources
+C:\Users\jimmy\source\repos\JTorKag\SnailAI\Core\SnailAI\obj\Release\net6.0\SnailAI.csproj.GenerateResource.cache
